@@ -1,11 +1,10 @@
 let string="";
 let buttons=document.querySelectorAll('button');
 Array.from(buttons).forEach((button)=>{
-
   button.addEventListener("click",(e)=>{
     if(e.target.innerHTML==='='){
-        if(string.includes("X")){
-           string= string.replace("X",'*')
+        while(string.includes("X")){
+           string= string.replace("X",'*');
         }
         string=eval(string);
         document.getElementById("display").value=string;
@@ -17,9 +16,8 @@ Array.from(buttons).forEach((button)=>{
         document.getElementById("display").value=string;
     }
     else{
-   console.log(e.target);
    string+=e.target.innerHTML;
    document.getElementById("display").value=string;
     }
   })
-})
+});
